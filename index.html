@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>FM Kitchen</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="brand-logo">
+                <h1>FM Kitchen</h1>
+            </div>
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navbar-menu">
+                <ul class="navbar-menu-items">
+                    <li class="navbar-menu-item"><a href="#">Home</a></li>
+                    <li class="navbar-menu-item"><a href="#menu-section">Menu</a></li>
+                    <li class="navbar-menu-item"><a href="#">About</a></li>
+                    <li class="navbar-menu-item"><a class="order-now" href="#">Order Now</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content" role="main">
+        <section id="section-1" class="carousel">
+        </section>
+
+        <section id="section-2">
+            <h2>
+                FM Kitchen serves people with joy and offers lovely food. It provides an opportunity for everyone to enjoy high-quality, delicious meals at an affordable price.
+            </h2>
+            <div class="grid">
+                <div class="box">
+                    <h3 class="box-title">Budget Meal</h3>
+                    <p>Affordable and tasty options for everyone.</p>
+                </div>
+                <div class="box">
+                    <h3 class="box-title">Special Meal</h3>
+                    <p>Premium meals for special moments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-section">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Placeholder Dish 1</h3>
+                    <p>$12.99</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Placeholder Dish 2</h3>
+                    <p>$14.99</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Placeholder Dish 3</h3>
+                    <p>$10.99</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Placeholder Dish 4</h3>
+                    <p>$9.99</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Placeholder Dish 5</h3>
+                    <p>$11.49</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Placeholder Dish 6</h3>
+                    <p>$13.89</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 FM Kitchen. All Rights Reserved.</p>
+            <div class="footer-menu">
+                <ul class="footer-menu-items">
+                    <li class="footer-menu-item"><a href="#">Home</a></li>
+                    <li class="footer-menu-item"><a href="#menu-section">Menu</a></li>
+                    <li class="footer-menu-item"><a href="#">About</a></li>
+                    <li class="footer-menu-item"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.navbar-menu');
+    const menuItems = document.querySelectorAll('.navbar-menu-item a');
+
+    // Toggle menu
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    }
+
+    // Add click event to hamburger
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking menu items
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            toggleMenu();
+        }
+    });
+});
+    </script>
+</body>
+</html>
