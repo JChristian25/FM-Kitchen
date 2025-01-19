@@ -7,6 +7,7 @@ html, body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 body.no-scroll {
@@ -20,9 +21,9 @@ body.no-scroll {
 }
 
 /*---------------------
-  2. Header & Navigation
+    2. Header & Navigation
 ----------------------*/
-nav {
+#navbar.full {
     position: fixed;
     top: 0;
     left: 0;
@@ -37,30 +38,32 @@ nav {
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     gap: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Brand Logo */
-nav .brand-logo {
+#navbar.full .brand-logo {
     color: white;
     text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-nav .brand-logo h1 {
+#navbar.full .brand-logo h1 {
     margin: 0;
     padding: 0;
-    font-size: clamp(2.5rem, 4vw, 3rem);
+    font-size: clamp(3rem, 5vw, 3.5rem);
     letter-spacing: 1px;
 }
 
 /* Navigation Menu */
-.navbar-menu {
+#navbar.full .navbar-menu {
     margin: 0;
     padding: 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
 
 .navbar-menu-item a {
     text-decoration: none;
@@ -68,7 +71,7 @@ nav .brand-logo h1 {
     font-weight: bolder;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
@@ -86,22 +89,43 @@ nav .brand-logo h1 {
 
 /* SHRINK */
 
-
-nav.shrink {
+#navbar.shrink {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     top: 0;
     left: 0;
     right: 0;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 15vh;
     background-color: rgba(90, 40, 41, 0.95);
     backdrop-filter: blur(8px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     gap: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Brand Logo */
+#navbar.shrink .brand-logo {
+    color: white;
+    margin-left: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#navbar.shrink .brand-logo h1 {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(2.5rem, 4vw, 3rem);
+    letter-spacing: 1px;
+}
+
+/* Navigation Menu */
+#navbar.shrink .navbar-menu {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 
@@ -162,13 +186,44 @@ nav.shrink {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
 
-.carousel img {
+
+.carousel-slides .carousel-text {
+    display: none;
+}
+
+.carousel-slides.active .carousel-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.carousel-text h2 {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    text-transform: uppercase;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    margin-bottom: 0.5rem; /* Add margin to separate h2 and h3 */
+}
+
+.carousel-text h3 {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Make h3 smaller */
+    text-transform: uppercase;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    margin-top: 0; /* Remove top margin */
+}
+
+.carousel-slides img {
     filter: brightness(0.4);
     display: none;
     width: 100%;
 }
 
-.carousel img.active {
+.carousel-slides.active img {
     display: block;
 }
 
@@ -360,23 +415,47 @@ footer {
     color: rgba(255, 255, 255, 0.8);
 }
 
+#back-to-top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#back-to-top.active {
+    display: flex;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+}
+
 /*---------------------
   6. Media Queries
 ----------------------*/
 @media (max-width: 768px) {
     /* Hamburger Menu */
-    nav {
+    #navbar.full {
         display: flex;
         align-items: flex-start;
         height: 15vh;
     }
 
-    nav .brand-logo {
-        margin-left: 1.5rem;
+    #navbar .brand-logo {
+        margin-left: 1rem;
     }
 
-    nav .brand-logo h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
+    #navbar .brand-logo h1 {
+        font-size: clamp(1.2rem, 2.5vw, 2rem);
     }
 
     .hamburger-menu {
@@ -395,13 +474,10 @@ footer {
         justify-content: center;
     }
 
-    .carousel img {
-        height: 100%;
-        width: auto;
-        background-size: cover;
+    .carousel-slides img {
+        object-fit: cover;
     }
     
-
     nav .navbar-menu {
         position: absolute;
         top: 0;
@@ -465,5 +541,12 @@ footer {
 @media (max-width: 480px) {
     .menu-grid {
         grid-template-columns: 1fr;
+    }
+
+    
+    .carousel-slides img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }

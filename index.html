@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <nav id="navbar">
+        <nav id="navbar" class="full">
             <div class="brand-logo">
                 <h1>FM Kitchen</h1>
             </div>
@@ -21,7 +21,7 @@
                 <ul class="navbar-menu-items">
                     <li class="navbar-menu-item"><a href="#">Home</a></li>
                     <li class="navbar-menu-item"><a href="#menu-section">Menu</a></li>
-                    <li class="navbar-menu-item"><a href="#">About</a></li>
+                    <li class="navbar-menu-item"><a href="#section-2">About</a></li>
                     <li class="navbar-menu-item"><a href="#">Contact</a></li>
                     <li class="navbar-menu-item"><a class="order-now" href="#">Order Now</a></li>
                 </ul>
@@ -30,9 +30,27 @@
     </header>
     <main class="main-content" role="main">
         <section id="section-1" class="carousel">
-            <img src="./img/001.jpg" class="carousel-slides active">
-            <img src="./img/002.jpg" class="carousel-slides">
-            <img src="./img/003.jpg" class="carousel-slides">
+            <div class="carousel-slides active">
+                <div class="carousel-text">
+                    <h2>Order Now</h2>
+                    <h3>Hunger Ends Here—Order Today!</h3>
+                </div>
+                <img src="./img/001.jpg">
+            </div>
+            <div class="carousel-slides">
+                <div class="carousel-text">
+                    <h2>Satisfy Your Cravings</h2>
+                    <h3>Cravings? Consider Them Solved!</h3>
+                </div>
+                <img src="./img/002.jpg">
+            </div>
+            <div class="carousel-slides">
+                <div class="carousel-text">
+                    <h2>Affordable Prices</h2>
+                    <h3>Affordable Doesn’t Mean Compromise!</h3>
+                </div>
+                <img src="./img/003.jpg">
+            </div>
         
             <div class="carousel-controls">
                 <span class="carousel-control active" onclick="toggleCarousel(0)"></span>
@@ -86,6 +104,10 @@
                 </div>
             </div>
         </section>
+
+        <div id="back-to-top" onclick="backtop()">
+            <span>&uarr;</span>
+        </div>
     </main>
     <footer>
         <div class="footer-content">
