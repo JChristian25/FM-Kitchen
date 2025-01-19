@@ -33,7 +33,7 @@ body.no-scroll {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(90, 40, 41, 0.95);
+    background-color: #411c1c;
     backdrop-filter: blur(8px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -113,7 +113,7 @@ body.no-scroll {
     left: 0;
     right: 0;
     height: 15vh;
-    background-color: rgba(90, 40, 41, 0.95);
+    background-color: #411c1c;
     backdrop-filter: blur(8px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -287,20 +287,27 @@ body.no-scroll {
     cursor: pointer;
 }
 
+#about-section {
+    background-color: #411c1c;
+    padding: clamp(1rem, 3vw, 2rem) clamp(0.25rem, 1vw, 1rem);
+}
+
+#about-section h2 {
+    color: white;
+    text-align: center;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
 /* Section 2 */
 #section-2 {
     padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
 }
 
-#section-2 h2 {
-    color: white;
-    text-align: center;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    max-width: min(800px, 90%);
-    margin: 0 auto 3rem;
-    line-height: 1.4;
-    font-weight: 400;
-}
 
 /* Section 3 - Contact Us */
 #section-3 {
