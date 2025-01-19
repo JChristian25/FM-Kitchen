@@ -28,16 +28,15 @@ body.no-scroll {
     top: 0;
     left: 0;
     right: 0;
-    height: 25vh;
+    height: 18vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #411c1c;
+    background: linear-gradient(to bottom right, #411c1c, #5a2829);
     backdrop-filter: blur(8px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    gap: 1rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -58,7 +57,7 @@ body.no-scroll {
 /* Navigation Menu */
 #navbar.full .navbar-menu {
     margin: 0;
-    padding: 0;
+    padding-bottom: 2vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -113,7 +112,7 @@ body.no-scroll {
     left: 0;
     right: 0;
     height: 15vh;
-    background-color: #411c1c;
+    background: linear-gradient(to bottom right, #411c1c, #5a2829);
     backdrop-filter: blur(8px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -213,10 +212,13 @@ body.no-scroll {
 /* Hero Section */
 .carousel {
     background-color: white;
-    margin-top: 25vh;
-    height: 75vh;
+    margin-top: 18vh;
+    height: 82vh;
     width: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
@@ -226,14 +228,15 @@ body.no-scroll {
 }
 
 .carousel-slides.active .carousel-text {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #D5C5AF;
+    color: white;
     z-index: 1;
 }
 
@@ -241,7 +244,8 @@ body.no-scroll {
     font-size: clamp(3.5rem, 8vw, 5rem);
     text-transform: uppercase;
     font-family: 'Arial Black', Gadget, sans-serif;
-    margin-bottom: 0.5rem; /* Add margin to separate h2 and h3 */
+    margin-bottom: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
 
 .carousel-text h3 {
@@ -249,6 +253,7 @@ body.no-scroll {
     text-transform: uppercase;
     font-family: 'Arial Black', Gadget, sans-serif;
     margin-top: 0; /* Remove top margin */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
 
 .carousel-slides img {
@@ -262,18 +267,22 @@ body.no-scroll {
 }
 
 .carousel-controls {
+    background-color: #411c1c;
     display: flex;
     justify-content: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     align-items: center;
     position: absolute;
-    bottom: 20px;
-    width: 100%;
+    bottom: 0;
+    width: 20%;
 }
 
 .carousel-control {
     display: block;
     width: 10px;
     height: 10px;
+    margin-block: 0.5rem;
     border: solid 3px white;
     border-radius: 50%;
     margin-inline: 6px;
@@ -388,11 +397,10 @@ body.no-scroll {
 
 /* Box Styles */
 .box {
-    background-color: #411c1c;
+    background-color: #5a2829;
     color: white;
     padding: clamp(1.5rem, 4vw, 3rem);
     border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
     flex: 1 1 calc(300px - 1rem); /* Flexible and responsive sizing */
     display: flex;
@@ -402,18 +410,24 @@ body.no-scroll {
     min-width: 200px; /* Minimum width for smaller screens */
     max-width: 350px; /* Limit width for larger screens */
     text-decoration: none; /* Remove default link styling */
+    margin: 1rem; /* Add margin for spacing */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .box:hover {
     transform: translateY(-10px); /* Subtle lift on hover */
+    background-color: #411c1c;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
     cursor: pointer;
+}
+.box:hover .box-image {
+    border-radius: 10px; /* Rounded corners for the image */
+    transition: border-radius 0.3s ease; /* Smooth transition for border-radius */
 }
 
 /* Image Styles */
 .box-image {
     overflow: hidden; /* Prevent overflow */
-    border-radius: 10px; /* Rounded corners for the image */
     margin-bottom: 1rem;
 }
 
@@ -430,11 +444,11 @@ body.no-scroll {
 
 /* Box Title */
 .box-title {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 .box-title::after {
@@ -443,21 +457,21 @@ body.no-scroll {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: white;
     transition: width 0.3s ease; /* Smooth underline animation */
 }
 
 .box:hover .box-title::after {
-    width: 80px; /* Extend underline on hover */
+    width: 100px; /* Extend underline on hover */
 }
 
 /* Box Description */
 .box-description {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-size: clamp(1rem, 3vw, 1.25rem);
     color: #d5c5af;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
 }
 
