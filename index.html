@@ -217,22 +217,20 @@
 
             function nextSlide() {
                 const activeSlide = document.querySelector('.carousel-slides.active');
-                let nextSlide = activeSlide.nextElementSibling;
-                if (!nextSlide) {
-                    nextSlide = document.querySelector('.carousel-slides:first-child');
+                let nextIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide) + 1;
+                if (nextIndex >= activeSlide.parentElement.children.length) {
+                    nextIndex = 0;
                 }
-                activeSlide.classList.remove('active');
-                nextSlide.classList.add('active');
+                toggleCarousel(nextIndex);
             }
 
             function prevSlide() {
                 const activeSlide = document.querySelector('.carousel-slides.active');
-                let prevSlide = activeSlide.previousElementSibling;
-                if (!prevSlide) {
-                    prevSlide = document.querySelector('.carousel-slides:last-child');
+                let prevIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide) - 1;
+                if (prevIndex < 0) {
+                    prevIndex = activeSlide.parentElement.children.length - 1;
                 }
-                activeSlide.classList.remove('active');
-                prevSlide.classList.add('active');
+                toggleCarousel(prevIndex);
             }
         });
     </script>
