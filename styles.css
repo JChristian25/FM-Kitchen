@@ -66,8 +66,10 @@ body.no-scroll {
 }
 
 .navbar-menu-item a {
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
-    color: white;
+    color: #D5C5AF;
     font-weight: bolder;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -75,9 +77,22 @@ body.no-scroll {
     font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
-.navbar-menu-item a:hover {
-    color: white; /* Fill the text color on hover */
+.navbar-menu-item a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position the line below the text */
+    left: 0; 
+    width: 0; 
+    height: 2px; /* Thickness of the line */
+    background-color: #D5C5AF; /* Line color */
+    z-index: -1; /* Keep it behind the text */
+    transition: width 0.4s ease; /* Smooth animation */
 }
+
+.navbar-menu-item a:hover::before {
+    width: 100%; /* Extend the line under the link */
+}
+
 
 .navbar-menu-items {
     display: flex;
@@ -131,15 +146,35 @@ body.no-scroll {
 
 /* Order Now Button */
 .navbar-menu-item .order-now {
-    border: 2px solid white;
+    position: relative; /* Required for pseudo-element positioning */
+    border: 2px solid #D5C5AF;
     padding: 0.5rem 1.5rem;
-    transition: all 0.3s ease;
+    background-color: transparent; /* Initial background */
+    color: #D5C5AF;
+    overflow: hidden; /* Ensure pseudo-element stays inside */
+    transition: color 0.3s ease; /* Smooth color change for text */
+}
+
+.navbar-menu-item .order-now::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #D5C5AF; /* Fill color */
+    z-index: -1; /* Place behind the text */
+    transition: width 0.4s ease; /* Smooth fill effect */
 }
 
 .navbar-menu-item .order-now:hover {
-    background-color: white;
-    color: #5a2829;
+    color: #5a2829; /* Text color on hover */
 }
+
+.navbar-menu-item .order-now:hover::before {
+    width: 100%; /* Expand the fill on hover */
+}
+
 
 /* Hamburger Menu */
 .hamburger-menu {
@@ -198,7 +233,7 @@ body.no-scroll {
     width: 100%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: #D5C5AF;
     z-index: 1;
 }
 
@@ -219,7 +254,7 @@ body.no-scroll {
 .carousel-slides img {
     display: none;
     width: 100%;
-    filter: brightness(0.65);
+    filter: brightness(0.45);
 }
 
 .carousel-slides.active img {
@@ -309,41 +344,57 @@ body.no-scroll {
 /* Grid Layout */
 .grid {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     justify-content: center;
-    gap: clamp(1rem, 3vw, 3rem);
-    padding: 1rem;
+    gap: clamp(1rem, 3vw, 3rem); /* Responsive gap between boxes */
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    flex-direction: row;
 }
 
+/* Box Styles */
 .box {
     background-color: #411c1c;
     color: white;
-    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 3rem);
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-    flex: 1;
+    flex: 1 1 calc(300px - 1rem); /* Flexible and responsive sizing */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: transform 0.3s ease;
-    min-width: 200px;
-    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px; /* Minimum width for smaller screens */
+    max-width: 350px; /* Limit width for larger screens */
+    text-decoration: none; /* Remove default link styling */
+}
+
+.box:hover {
+    transform: translateY(-10px); /* Subtle lift on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    cursor: pointer;
+}
+
+/* Image Styles */
+.box-image {
+    overflow: hidden; /* Prevent overflow */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 1rem;
 }
 
 .box-image img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth zoom effect */
 }
 
-.box:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
+.box:hover .box-image img {
+    transform: scale(1.1); /* Zoom-in on hover */
 }
 
+/* Box Title */
 .box-title {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: white;
@@ -361,7 +412,21 @@ body.no-scroll {
     width: 50px;
     height: 2px;
     background-color: white;
+    transition: width 0.3s ease; /* Smooth underline animation */
 }
+
+.box:hover .box-title::after {
+    width: 80px; /* Extend underline on hover */
+}
+
+/* Box Description */
+.box-description {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: #d5c5af;
+    line-height: 1.5;
+    margin: 0;
+}
+
 
 /*---------------------
   4. Menu Section
@@ -414,52 +479,41 @@ body.no-scroll {
     transform: translateY(-5px);
 }
 
-.menu-grid h3 {
-    margin-bottom: 1rem;
-    font-size: clamp(1.2rem, 3vw, 1.4rem);
-    color: white;
-}
-
-.menu-grid ul li {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    list-style-type: none;
-    color: white;
-}
-
 .budget-meals,
-.special-meals
-{
-    width: 50%;
+.special-meals {
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+    color: white;
 }
 
 .budget-meals ul,
-.special-meals ul 
-{
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+.special-meals ul {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    list-style-type: none;
+    color: white;
+    padding: 0;
+    margin: 0;
 }
 
 .budget-meals li,
-.special-meals li
-{
+.special-meals li {
     display: flex;
     justify-content: space-between; /* Align items to left and right */
     font-family: Arial, sans-serif;
     padding: 5px 0; /* Add spacing between items */
     border-bottom: 1px dotted lightgray; /* Optional separator line */
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease; /* Add smooth transition */
 }
 
 .budget-meals li:hover,
-.special-meals li:hover
-{
-    background-color: white;
-    color: #5a2829;
+.special-meals li:hover {
+    background-color: white; /* Highlight background */
+    color: #5a2829; /* Change text color */
     cursor: pointer;
-    padding-inline: 2%;
+    padding-inline: 2%; /* Add padding effect */
 }
+
 
 .item {
     flex: 1; /* Take up available space */
@@ -596,6 +650,12 @@ footer {
         padding: 2rem;
     }
 
+    .budget-meals,
+    .special-meals
+    {
+        width: 80%;
+    }
+
     /* Hamburger Animation */
     .hamburger-menu.active span:first-child {
         transform: rotate(45deg);
@@ -611,14 +671,24 @@ footer {
         top: 0;
     }
 
-    /* Layout Adjustments */
-    .grid {
-        flex-direction: column;
+        /* Box Hover and Active Styles */
+    .box:hover,
+    .box:active {
+        transform: translateY(-10px); /* Subtle lift effect */
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+        cursor: pointer;
     }
 
-    .box {
-        max-width: 100%;
+    .box:hover .box-image img,
+    .box:active .box-image img {
+        transform: scale(1.1); /* Zoom-in effect on image */
     }
+
+    .box:hover .box-title::after,
+    .box:active .box-title::after {
+        width: 80px; /* Extend underline on hover or touch */
+    }
+
 
     .footer-content {
         flex-direction: column;
