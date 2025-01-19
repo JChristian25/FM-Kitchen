@@ -218,8 +218,8 @@
             function nextSlide() {
                 const activeSlide = document.querySelector('.carousel-slides.active');
                 let nextIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide) + 1;
-                if (nextIndex >= activeSlide.parentElement.children.length) {
-                    nextIndex = 0;
+                if (nextIndex >= 3) {
+                    nextIndex = 2;
                 }
                 toggleCarousel(nextIndex);
             }
@@ -228,7 +228,7 @@
                 const activeSlide = document.querySelector('.carousel-slides.active');
                 let prevIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide) - 1;
                 if (prevIndex < 0) {
-                    prevIndex = activeSlide.parentElement.children.length - 1;
+                    prevIndex = 0;
                 }
                 toggleCarousel(prevIndex);
             }
