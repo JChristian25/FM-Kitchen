@@ -302,19 +302,28 @@ body.no-scroll {
     font-weight: 400;
 }
 
-/* Section 3 */
-
+/* Section 3 - Contact Us */
 #section-3 {
     padding: clamp(2rem, 5vw, 4rem);
-    background-color: #5a2829;
+    background: linear-gradient(135deg, #5a2829, #411c1c);
     text-align: center;
+    color: white;
+}
+
+#section-3 h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
+    color: #D5C5AF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 #section-3 .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 #section-3 .contact-image img {
@@ -322,24 +331,42 @@ body.no-scroll {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#section-3 .contact-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 #section-3 .contact-details {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    color: white;
-    margin: 0; /* Remove spaces between texts */
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #section-3 .contact-details a {
-    color: white;
+    color: #D5C5AF;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 #section-3 .contact-details a:hover {
-    text-decoration: underline;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
 }
+
+#section-3 .contact-details p {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    color: #f3e8dd;
+}
+
 
 /* Grid Layout */
 .grid {
