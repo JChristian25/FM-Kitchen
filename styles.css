@@ -529,8 +529,8 @@ body.no-scroll {
     background-color: var(--primary-color);
     color: var(--text-color);
     border-radius: 50%; /* Make it circular */
-    width: 250px; /* Increase width */
-    height: 250px; /* Increase height */
+    width: 400px; /* Increase width */
+    height: 400px; /* Increase height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -614,32 +614,21 @@ body.no-scroll {
 
 @media (max-width: 768px) {
     .box {
-        width: 330px; /* Ensure width is equal to height */
-        height: 330px; /* Ensure height is equal to width */
-        border-radius: 50%; /* Make it circular */
+        width: 400px;
+        height: 400px;
+    }
+    .box-image {
+        width: 400px; /* Ensure width is equal to height */
+        height: 400px; /* Ensure height is equal to width */
+        border-radius: 100%; /* Make it circular */
         flex: 0 0 auto; /* Prevent flex-grow and flex-shrink */
         max-width: none; /* Remove max-width */
     }
 
     .box-image img {
-        height: 200px; /* Set a specific height */
-    }
-
-    .box-title {
-        font-size: 1.5rem;
-    }
-
-    .box-description {
-        font-size: 1rem;
-    }
-
-    .box {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    .box-image img {
-        height: 200px; /* Set a specific height */
+        width: 400px; /* Ensure width is equal to height */
+        height: 400px; 
+        object-fit: cover;
     }
 
     .box-title {
@@ -986,6 +975,24 @@ footer {
     .carousel-slides img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+    }
+    .box-image {
+        width: 200px; /* Ensure width is equal to height */
+        height: 200px; /* Ensure height is equal to width */
+        border-radius: 100%; /* Make it circular */
+        flex: 0 0 auto; /* Prevent flex-grow and flex-shrink */
+        max-width: none; /* Remove max-width */
+    }
+
+    .box-image img {
+        width: 200px; /* Ensure width is equal to height */
+        height: 200px; 
         object-fit: cover;
     }
 }
