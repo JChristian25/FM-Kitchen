@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <div class="brand-logo">
                 <h1>FM Kitchen</h1>
             </div>
@@ -22,6 +22,7 @@
                     <li class="navbar-menu-item"><a href="#">Home</a></li>
                     <li class="navbar-menu-item"><a href="#menu-section">Menu</a></li>
                     <li class="navbar-menu-item"><a href="#">About</a></li>
+                    <li class="navbar-menu-item"><a href="#">Contact</a></li>
                     <li class="navbar-menu-item"><a class="order-now" href="#">Order Now</a></li>
                 </ul>
             </div>
@@ -29,6 +30,15 @@
     </header>
     <main class="main-content" role="main">
         <section id="section-1" class="carousel">
+            <img src="./img/001.jpg" class="carousel-slides active">
+            <img src="./img/002.jpg" class="carousel-slides">
+            <img src="./img/003.jpg" class="carousel-slides">
+        
+            <div class="carousel-controls">
+                <span class="carousel-control active" onclick="toggleCarousel(0)"></span>
+                <span class="carousel-control" onclick="toggleCarousel(1)"></span>
+                <span class="carousel-control" onclick="toggleCarousel(2)"></span>
+            </div>
         </section>
 
         <section id="section-2">
@@ -90,7 +100,8 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="./script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger-menu');
