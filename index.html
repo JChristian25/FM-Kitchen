@@ -78,18 +78,21 @@
                     <div class="box-image">
                         <img src="./img/budget-meal.jpg" alt="Budget meal">
                     </div>
-                    <h3 class="box-title">Budget Meal</h3>
-                    <p class="box-description">Affordable and tasty options for everyone.</p>
+                    <div class="box-content">
+                        <h3 class="box-title">Budget Meal</h3>
+                        <p class="box-description">Affordable and tasty options for everyone.</p>
+                    </div>
                 </a>
                 <a class="box" href="#special-meals">
                     <div class="box-image">
                         <img src="./img/special-meal.jpg" alt="Special meal">
                     </div>
-                    <h3 class="box-title">Special Meal</h3>
-                    <p class="box-description">Premium meals for special moments.</p>
+                    <div class="box-content">
+                        <h3 class="box-title">Special Meal</h3>
+                        <p class="box-description">Premium meals for special moments.</p>
+                    </div>
                 </a>
             </div>
-            
         </section>
 
         <section id="menu-intro">
@@ -191,6 +194,46 @@
                     toggleMenu();
                 }
             });
+
+            // Carousel swipe functionality
+            const carousel = document.querySelector('.carousel');
+            let startX, endX;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                endX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                if (startX > endX + 50) {
+                    nextSlide();
+                } else if (startX < endX - 50) {
+                    prevSlide();
+                }
+            });
+
+            function nextSlide() {
+                const activeSlide = document.querySelector('.carousel-slides.active');
+                let nextSlide = activeSlide.nextElementSibling;
+                if (!nextSlide) {
+                    nextSlide = document.querySelector('.carousel-slides:first-child');
+                }
+                activeSlide.classList.remove('active');
+                nextSlide.classList.add('active');
+            }
+
+            function prevSlide() {
+                const activeSlide = document.querySelector('.carousel-slides.active');
+                let prevSlide = activeSlide.previousElementSibling;
+                if (!prevSlide) {
+                    prevSlide = document.querySelector('.carousel-slides:last-child');
+                }
+                activeSlide.classList.remove('active');
+                prevSlide.classList.add('active');
+            }
         });
     </script>
 </body>
