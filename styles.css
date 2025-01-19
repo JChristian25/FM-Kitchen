@@ -31,6 +31,11 @@ html, body {
     scroll-behavior: smooth;
 }
 
+section {
+    scroll-margin-top: 15vh; /* Adjust this value to match your navbar height */
+}
+  
+
 body.no-scroll {
     overflow: hidden;
 }
@@ -857,12 +862,13 @@ footer {
         height: 15vh;
     }
 
+
     #navbar .brand-logo {
         margin-left: 1rem;
     }
 
-    #navbar .brand-logo h1 {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
+    #navbar.full .brand-logo h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
     }
 
     .hamburger-menu {
@@ -887,6 +893,10 @@ footer {
         object-fit: cover;
     }
     
+    .carousel-controls {
+        width: 40%;
+    } 
+
     nav .navbar-menu {
         position: absolute;
         top: 0;
@@ -983,15 +993,15 @@ footer {
         height: 200px;
     }
     .box-image {
-        width: 200px; /* Ensure width is equal to height */
-        height: 200px; /* Ensure height is equal to width */
-        border-radius: 100%; /* Make it circular */
-        flex: 0 0 auto; /* Prevent flex-grow and flex-shrink */
-        max-width: none; /* Remove max-width */
+        width: 200px; 
+        height: 200px; 
+        border-radius: 100%; 
+        flex: 0 0 auto; 
+        max-width: none; 
     }
 
     .box-image img {
-        width: 200px; /* Ensure width is equal to height */
+        width: 200px;
         height: 200px; 
         object-fit: cover;
     }
