@@ -259,7 +259,7 @@ body.no-scroll {
 
 /* Hero Section */
 .carousel {
-    background-color: var(--text-color);
+    background-color: var(--box-shadow-color);
     margin-top: 18vh;
     height: 82vh;
     width: 100%;
@@ -268,6 +268,15 @@ body.no-scroll {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+}
+
+.carousel-slides {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slides.active {
+    opacity: 1;
 }
 
 .carousel-slides .carousel-text {
@@ -305,7 +314,7 @@ body.no-scroll {
 
 .carousel-slides img {
     display: none;
-    width: 100%;
+    object-fit: cover;
     filter: brightness(0.45);
 }
 
@@ -356,9 +365,14 @@ body.no-scroll {
     text-align: center;
 }
 
+#about-section h1 {
+    font-size: clamp(2rem, 4vw, 3rem); 
+    margin: 0;
+}
+
 #about-section h2 {
     color: var(--about-section-text-color);
-    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.5rem); 
     margin-bottom: 1.5rem;
     border-width: 3px;
     border-style: solid;
@@ -369,6 +383,12 @@ body.no-scroll {
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     display: inline-block;
+    text-align: justify;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: normal; /* Make font weight normal */
 }
 
 #about-section p {
@@ -389,6 +409,23 @@ body.no-scroll {
     padding-bottom: clamp(2rem, 5vw, 4rem);
     padding-left: clamp(2rem, 5vw, 4rem);
     background-color: var(--background-color);
+}
+
+#section-2 h1 {
+    color: white;
+    text-align: center;
+    font-size: 2.5em; /* Adjust the size as needed */
+    margin: 0;
+}
+
+#section-2 h2 {
+    margin-inline: auto;
+    margin-block: 0;
+    color: white;
+    text-align: center;
+    font-size: 1.5em; 
+    font-weight: normal;
+    width: 70%;
 }
 
 #section-3 {
@@ -576,6 +613,26 @@ body.no-scroll {
 
 
 @media (max-width: 768px) {
+    .box {
+        width: 330px; /* Ensure width is equal to height */
+        height: 330px; /* Ensure height is equal to width */
+        border-radius: 50%; /* Make it circular */
+        flex: 0 0 auto; /* Prevent flex-grow and flex-shrink */
+        max-width: none; /* Remove max-width */
+    }
+
+    .box-image img {
+        height: 200px; /* Set a specific height */
+    }
+
+    .box-title {
+        font-size: 1.5rem;
+    }
+
+    .box-description {
+        font-size: 1rem;
+    }
+
     .box {
         flex: 1 1 100%;
         max-width: 100%;
