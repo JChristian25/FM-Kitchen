@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('scroll', checkVisibility, { passive: true });
     checkVisibility(); // Initial check on page load
 
 });
