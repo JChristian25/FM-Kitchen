@@ -66,6 +66,10 @@ html, body {
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+#order-section {
+    text-align: center; /* Center text */
+}
+
 .navbar-menu-item a {
     position: relative;
     overflow: hidden;
@@ -338,6 +342,13 @@ html, body {
     }
 }
 
+/* Carousel Styles */
+.carousel-slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire element */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .main-content {
@@ -377,11 +388,12 @@ html, body {
 
     .cart.show-items ul {
         display: block; /* Show cart items when toggled */
+        width: 80%;
     }
 
     .cart.show-items {
-        height: 100vh; /* Full screen height */
-        overflow-y: auto; /* Enable scrolling */
+        height: 80%; /* Full screen height */
+        overflow-y: auto;
     }
 
     .cart button {
@@ -446,19 +458,17 @@ html, body {
     }
 
     #navbar {
-        height: 10vh; /* Decrease navbar height */
+        height: 12vh; /* Decrease navbar height */
     }
 
     #navbar .brand-logo h1 {
         font-size: clamp(2rem, 4vw, 2.5rem); /* Decrease font size */
+        margin-top: 1.5rem;
+        padding: 0;
     }
 
     #navbar .navbar-menu {
-        padding-bottom: 1vh; /* Decrease padding */
-    }
-
-    .navbar-menu-items {
-        gap: 1rem; /* Remove spacing between brand logo and back */
+        padding-bottom: 1.5rem;
     }
 
     section {

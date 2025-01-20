@@ -188,6 +188,25 @@ body.no-scroll {
 }
 
 
+#navbar.shrink .navbar-menu input {
+    border: 2px solid var(--secondary-color);
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#navbar.shrink .navbar-menu input::placeholder {
+    color: var(--secondary-color);
+}
+
+#navbar.shrink .navbar-menu input:focus {
+    border-color: var(--text-color);
+    outline: none;
+}
+
 /* Order Now Button */
 .navbar-menu-item .order-now {
     position: relative; /* Required for pseudo-element positioning */
@@ -258,6 +277,18 @@ body.no-scroll {
     position: relative;
     transform-origin: 1px;
 }
+
+/* ...existing code... */
+
+.shrink-only {
+    display: none;
+}
+
+#navbar.shrink .shrink-only {
+    display: flex;
+}
+
+/* ...existing code... */
 
 /*---------------------
   3. Main Content
@@ -500,6 +531,35 @@ body.no-scroll {
     color: #f3e8dd;
 }
 
+/* ...existing code... */
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+social-links a:hover {
+    color: var(--footer-hover-color);
+}
+
+/* ...existing code... */
 
 /* Grid Layout */
 .grid {
@@ -828,6 +888,7 @@ footer {
     bottom: 1rem;
     right: 1rem;
     background-color: var(--text-color);
+    color: var(--background-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -923,6 +984,14 @@ footer {
         padding-bottom: 2rem;
         padding-left: 2rem;
     }
+    
+    .carousel-text h2 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+    
+    .carousel-text h3 {
+        font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+    }
 
     .budget-meals,
     .special-meals
@@ -1003,4 +1072,10 @@ footer {
         height: 200px; 
         object-fit: cover;
     }
+}
+
+/* Highlighted Text */
+.highlight {
+    background-color: yellow;
+    color: black;
 }

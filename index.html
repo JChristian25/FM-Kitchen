@@ -31,6 +31,9 @@
                     <li class="navbar-menu-item"><a href="#about-section">About</a></li>
                     <li class="navbar-menu-item"><a href="#section-3">Contact</a></li>
                     <li class="navbar-menu-item"><a class="order-now" href="./order.html">Order Now</a></li>
+                    <li class="navbar-menu-item navbar-search shrink-only">
+                        <input type="text" placeholder="Search..." aria-label="Search">
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -136,17 +139,25 @@
             <h2 class="fade-in">Contact Us</h2>
             <div class="contact-info section-element">
                 <div class="contact-image">
-                    <a href="https://www.facebook.com/profile.php?id=61565682562642" target="_blank"><img src="./img/profile.webp" alt="FM Kitchen Facebook Profile"></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565682562642" target="_blank">
+                        <img src="./img/profile.webp" alt="FM Kitchen Facebook Profile">
+                    </a>
                 </div>
                 <div class="contact-details fade-in">
-                    <p>Follow us on Facebook:</p>
-                    <a href="https://www.facebook.com/profile.php?id=61565682562642" target="_blank" rel="noopener noreferrer" aria-label="Visit FM Kitchen on Facebook">
-                        FM Kitchen Facebook Profile
-                    </a>
+                    <p>Follow us on:</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61565682562642" target="_blank" rel="noopener noreferrer" aria-label="Visit FM Kitchen on Facebook">
+                            <img src="./img/fb-ico.png" alt="Facebook Icon">
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/fm_kitch3n?igsh=MXB2cDFnem0ybjgxZQ==" target="_blank" rel="noopener noreferrer" aria-label="Visit FM Kitchen on Instagram">
+                            <img src="./img/ig-ico.png" alt="Instagram Icon">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-        
 
         <div id="back-to-top" onclick="backtop()">
             <span>&uarr;</span>
@@ -167,5 +178,37 @@
     </footer>
     
     <script src="./script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.navbar-search input');
+            
+            searchInput.addEventListener('input', function() {
+                const highlightedElements = document.querySelectorAll('.highlight');
+                highlightedElements.forEach(element => {
+                    element.classList.remove('highlight');
+                    element.innerHTML = element.textContent; // Remove the highlight span
+                });
+            });
+
+            searchInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    const elements = document.querySelectorAll('body *:not(script):not(style):not(input)');
+                    
+                    elements.forEach(element => {
+                        if (element.children.length === 0 && element.textContent) {
+                            const text = element.textContent.toLowerCase();
+                            if (text.includes(searchTerm)) {
+                                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                                element.innerHTML = element.textContent.replace(regex, '<span class="highlight">$1</span>');
+                            } else {
+                                element.innerHTML = element.textContent;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
