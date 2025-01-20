@@ -128,4 +128,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); // Initial check on page load
+
 });
