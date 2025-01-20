@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const backLink = document.querySelector('.back');
     backLink.addEventListener('click', function(event) {
@@ -9,6 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const cart = [];
     const cartList = document.querySelector('.cart ul');
     const cartTotal = document.querySelector('.cart-total');
+    const cartSection = document.querySelector('.cart');
+    const cartToggleBtn = document.createElement('button');
+    cartToggleBtn.classList.add('cart-toggle-btn');
+    cartToggleBtn.textContent = 'Show Cart Items';
+    cartSection.appendChild(cartToggleBtn);
+
+    cartToggleBtn.addEventListener('click', function() {
+        cartSection.classList.toggle('show-items');
+        if (cartSection.classList.contains('show-items')) {
+            cartToggleBtn.textContent = 'Hide Cart Items';
+        } else {
+            cartToggleBtn.textContent = 'Show Cart Items';
+        }
+    });
 
     function updateCart() {
         cartList.innerHTML = '';
