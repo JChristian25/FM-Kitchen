@@ -2,7 +2,7 @@
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 1024) { // Exclude phone and tablet
     if (window.scrollY > 65) {
       navbar.classList.add("shrink");
       navbar.classList.remove("full");
