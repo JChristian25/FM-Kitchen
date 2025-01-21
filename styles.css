@@ -819,7 +819,7 @@ social-links a:hover {
     border-bottom-width: 1px;
     border-bottom-style: dotted;
     border-bottom-color: lightgray; /* Optional separator line */
-    transition-property: background-color, color, padding; /* Add smooth transition */
+    transition-property: background-color, color, padding, transform; /* Add smooth transition */
     transition-duration: 0.3s;
     transition-timing-function: ease;
 }
@@ -833,6 +833,15 @@ social-links a:hover {
     padding-right: 2%;
 }
 
+.budget-meals a,
+.special-meals a {    
+    color: var(--text-color); 
+}
+
+.budget-meals a:hover,
+.special-meals a:hover {    
+    color: var(--hover-text-color); 
+}
 
 .item {
     flex: 1; /* Take up available space */
@@ -904,10 +913,6 @@ footer {
 
 #back-to-top.active {
     display: flex;
-}
-
-#back-to-top:hover {
-    transform: translateY(-5px);
 }
 
 /*---------------------
