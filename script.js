@@ -1,9 +1,7 @@
-// Select the navbar element
+// Navbar shrink on scroll
 const navbar = document.getElementById("navbar");
 
-// Add a scroll event listener
 window.addEventListener("scroll", () => {
-  // Check if the page has been scrolled down
   if (window.innerWidth > 768) {
     if (window.scrollY > 65) {
       navbar.classList.add("shrink");
@@ -20,9 +18,9 @@ window.addEventListener("scroll", () => {
   } else {
     back2top.classList.remove("active");
   }
-
 });
 
+// Carousel control
 function toggleCarousel(n) {
   let slides = document.getElementsByClassName("carousel-slides");
   let controls = document.getElementsByClassName("carousel-control");
@@ -37,6 +35,7 @@ function toggleCarousel(n) {
   }
 }
 
+// Back to top
 function backtop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -53,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('no-scroll');
     }
 
-    // Add click event to hamburger
+    // Hamburger click
     hamburger.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking menu items
+    // Close menu on item click
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
             if (navMenu.classList.contains('active')) {
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close menu when clicking outside
+    // Close menu on outside click
     document.addEventListener('click', (e) => {
         if (navMenu.classList.contains('active') && 
             !navMenu.contains(e.target) && 
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Carousel swipe functionality
+    // Carousel swipe
     const carousel = document.querySelector('.carousel');
     let startX, endX;
 
@@ -112,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleCarousel(prevIndex);
     }
 
+    // Fade-in elements
     const fadeInElements = document.querySelectorAll('.fade-in, .section-element');
 
     function checkVisibility() {
