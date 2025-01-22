@@ -1,4 +1,9 @@
-/* Variables */
+/* 
+ * Created by John Christian Linaban for Intro to Computing
+ * All rights reserved © 2025
+*/
+
+/* Variables for theme colors and reusable values */
 :root {
     --background-color: #5a2829;
     --primary-color: #411c1c;
@@ -27,20 +32,20 @@ html, body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 section {
-    scroll-margin-top: 15vh;
+    scroll-margin-top: 15vh; /* Offset for fixed header */
 }
 
 body.no-scroll {
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling when modal is open */
 }
 
 @media (min-width: 769px) {
     body.no-scroll {
-        overflow: auto;
+        overflow: auto; /* Allow scrolling on larger screens */
     }
 }
 
@@ -292,7 +297,7 @@ body.no-scroll {
 
 /* Main Content */
 .main-content {
-    margin-top: clamp(100px, 20vw, 120px);
+    margin-top: clamp(100px, 20vw, 120px); /* Responsive margin */
     font-family: 'Open Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
@@ -313,7 +318,7 @@ body.no-scroll {
 
 .carousel-slides {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
 }
 
 .carousel-slides.active {
@@ -338,27 +343,27 @@ body.no-scroll {
 }
 
 .carousel-text h2 {
-    font-size: clamp(3.5rem, 8vw, 5rem);
+    font-size: clamp(3.5rem, 8vw, 5rem); /* Responsive font size */
     text-transform: uppercase;
     font-family: 'Arial Black', Gadget, sans-serif;
     margin-bottom: 0;
-    text-shadow: 2px 2px 4px var(--text-shadow-color);
+    text-shadow: 2px 2px 4px var(--text-shadow-color); /* Text shadow for better readability */
     color: var(--text-color);
 }
 
 .carousel-text h3 {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
     text-transform: uppercase;
     font-family: 'Arial Black', Gadget, sans-serif;
     margin-top: 0;
-    text-shadow: 1px 1px 3px var(--text-shadow-color);
+    text-shadow: 1px 1px 3px var(--text-shadow-color); /* Text shadow for better readability */
     color: var(--text-color);
 }
 
 .carousel-slides img {
     display: none;
     object-fit: cover;
-    filter: brightness(0.45);
+    filter: brightness(0.45); /* Darken the image for better text contrast */
 }
 
 .carousel-slides.active img {
@@ -402,19 +407,19 @@ body.no-scroll {
 /* About Section */
 #about-section {
     background: linear-gradient(to bottom, rgba(65, 28, 28, 0.9), rgba(90, 40, 41, 0.9)), var(--about-section-bg-color);
-    padding: clamp(2rem, 5vw, 4rem);
+    padding: clamp(2rem, 5vw, 4rem); /* Responsive padding */
     text-align: center;
 }
 
 #about-section h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem); /* Responsive font size */
     margin: 0;
     color: var(--about-section-text-color);
 }
-
+/* hahaha binabasa niyo ba 'to? */
 #about-section h2 {
     color: var(--about-section-text-color);
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Responsive font size */
     margin-bottom: 1.5rem;
     padding: 0.5rem 1rem;
     display: inline-block;
@@ -654,7 +659,7 @@ social-links a:hover {
 
 .box-description {
     font-size: clamp(0.875rem, 2vw, 1.25rem);
-    color: var(--secondary-color);
+    color: var (--secondary-color);
     line-height: 1.4;
     margin: 0;
     text-align: center;
@@ -692,7 +697,7 @@ social-links a:hover {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth fade-in and slide-up animation */
 }
 
 .fade-in.visible {
@@ -704,7 +709,7 @@ social-links a:hover {
 .section-element {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth fade-in and slide-up animation */
 }
 
 .section-element.visible {
@@ -849,7 +854,7 @@ footer {
     margin-top: 0;
     text-align: center;
 }
-
+/* Ang pogi ko :3 */
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -914,7 +919,7 @@ footer {
     }
 
     #navbar.full .brand-logo h1 {
-        font-size: clamp(2rem, 4vw, 3rem);
+        font-size: clamp(2rem, 4vw, 3rem); /* Responsive font size */
     }
 
     .hamburger-menu {
@@ -973,11 +978,11 @@ footer {
     }
 
     .carousel-text h2 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
     }
 
     .carousel-text h3 {
-        font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+        font-size: clamp(0.875rem, 2.5vw, 1.25rem); /* Responsive font size */
     }
 
     .budget-meals,

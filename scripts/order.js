@@ -1,10 +1,17 @@
+/* 
+ * Created by John Christian Linaban for Intro to Computing
+ * All rights reserved © 2025
+*/
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Back button functionality
     const backLink = document.querySelector('.back');
     backLink.addEventListener('click', function(event) {
         event.preventDefault();
         window.history.back();
     });
 
+    // Cart functionality
     const cart = [];
     const cartList = document.querySelector('.cart ul');
     const cartTotal = document.querySelector('.cart-total');
@@ -14,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     cartToggleBtn.textContent = 'Show Cart Items';
     cartSection.appendChild(cartToggleBtn);
 
+    // Toggle cart items visibility
     cartToggleBtn.addEventListener('click', function() {
         cartSection.classList.toggle('show-items');
         if (cartSection.classList.contains('show-items')) {
@@ -23,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Update cart display
     function updateCart() {
         cartList.innerHTML = '';
         let total = 0;
@@ -34,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         cartTotal.textContent = `Total: $${total}`;
 
+        // Remove item from cart
         const removeButtons = document.querySelectorAll('.remove-btn');
         removeButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -50,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Add item to cart
     const boxes = document.querySelectorAll('.box');
     boxes.forEach(box => {
         box.addEventListener('click', function() {
@@ -65,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Modal functionality
     const modal = document.getElementById("order-modal");
     const btn = document.getElementById("checkout-button");
     const span = document.getElementsByClassName("close")[0];

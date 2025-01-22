@@ -1,6 +1,12 @@
+<!-- 
+ * Created by John Christian Linaban for Intro to Computing
+ * All rights reserved © 2025
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for SEO and responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FM Kitchen offers high-quality, delicious meals at affordable prices. Order now and satisfy your cravings!">
@@ -10,6 +16,7 @@
     
     <!-- <meta name="robots" content="index, follow"> -->
 
+    <!-- Link to external stylesheets and favicon -->
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
     <title>FM Kitchen</title>
@@ -17,14 +24,17 @@
 <body>
     <header>
         <nav id="navbar" class="full">
+            <!-- Brand logo -->
             <div class="brand-logo">
                 <h1>FM Kitchen</h1>
             </div>
+            <!-- Hamburger menu for mobile view -->
             <button class="hamburger-menu" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Navigation menu items -->
             <div class="navbar-menu">
                 <ul class="navbar-menu-items">
                     <li class="navbar-menu-item"><a href="#">Home</a></li>
@@ -40,6 +50,7 @@
         </nav>
     </header>
     <main class="main-content" role="main">
+        <!-- Carousel section -->
         <section id="section-1" class="carousel">
             <div class="carousel-slides active">
                 <div class="carousel-text fade-in">
@@ -70,6 +81,7 @@
             </div>
         </section>
 
+        <!-- About section -->
         <section id="about-section">
             <h1 class="fade-in" style="color: white;">Where Joy Meets Flavor!</h1>
             <h2 class="fade-in section-element">
@@ -78,6 +90,7 @@
             </h2>
         </section>
 
+        <!-- Menu selection section -->
         <section id="section-2">
             <h1 class="fade-in" style="color: white;">Select your meal!</h1>
             <h2 class="fade-in section-element" style="color: white;">
@@ -106,10 +119,12 @@
             <a id="order-now" href="./order.html">Order Now</a></li>
         </section>
 
+        <!-- Menu introduction section -->
         <section id="menu-intro">
             
         </section>
 
+        <!-- Menu section -->
         <section id="menu-section">
             <h2 class="fade-in">Our Menu</h2>
             <div class="budget-meals" id="budget-meals">
@@ -137,6 +152,7 @@
             </div>   
         </section>
 
+        <!-- Contact section -->
         <section id="section-3">
             <h2 class="fade-in">Contact Us</h2>
             <div class="contact-info section-element">
@@ -161,6 +177,7 @@
             </div>
         </section>
 
+        <!-- Back to top button -->
         <div id="back-to-top" onclick="backtop()">
             <span>&uarr;</span>
         </div>
@@ -179,6 +196,7 @@
         </div>
     </footer>
     
+    <!-- External JavaScript file -->
     <script src="./script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

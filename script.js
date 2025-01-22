@@ -1,3 +1,8 @@
+/* 
+ * Created by John Christian Linaban for Intro to Computing
+ * All rights reserved © 2025
+*/
+
 // Navbar shrink on scroll
 const navbar = document.getElementById("navbar");
 
@@ -6,7 +11,7 @@ window.addEventListener("scroll", () => {
     if (window.scrollY > 65) {
       navbar.classList.add("shrink");
       navbar.classList.remove("full");
-    } else {
+    } else { 
       navbar.classList.remove("shrink");
       navbar.classList.add("full");
     }
